@@ -42,25 +42,17 @@ TensorFlow Lite Flutter plugin provides a flexible and fast solution for accessi
 
 ### Android
 
-1. Place the script [install.sh](https://github.com/am15h/tflite_flutter_plugin/blob/master/install.sh) (Linux/Mac) or [install.bat](https://github.com/am15h/tflite_flutter_plugin/blob/master/install.bat) (Windows) at the root of your project.
-
-2. Execute `sh install.sh` (Linux) / `install.bat` (Windows) at the root of your project to automatically download and place binaries at appropriate folders.
-
+1. Run **`flutter pub run tflite_flutter:install`**
    Note: *The binaries installed will **not** include support for `GpuDelegateV2` and `NnApiDelegate` however `InterpreterOptions().useNnApiForAndroid` can still be used.* 
 
-3. Use **`sh install.sh -d`** (Linux) or **`install.bat -d`** (Windows) instead if you wish to use these `GpuDelegateV2` and `NnApiDelegate`.
+2. Use **`flutter pub run tflite_flutter:install -d`** instead if you wish to use these `GpuDelegateV2` and `NnApiDelegate`.
 
 These scripts install pre-built binaries based on latest stable tensorflow release. For info about using other tensorflow versions follow [instructions in wiki](https://github.com/am15h/tflite_flutter_plugin/wiki/). 
 
 ### iOS
 
-1. Download [`TensorFlowLiteC.framework`](https://github.com/am15h/tflite_flutter_plugin/releases/download/v0.5.0/TensorFlowLiteC.framework.zip). For building a custom version of tensorflow, follow [instructions in wiki](https://github.com/am15h/tflite_flutter_plugin/wiki/). 
-2. Place the `TensorFlowLiteC.framework` in the pub-cache folder of this package.
-
- Pub-Cache folder location: [(ref)](https://dart.dev/tools/pub/cmd/pub-get#the-system-package-cache)
-
- - `~/.pub-cache/hosted/pub.dartlang.org/tflite_flutter-<plugin-version>/ios/` (Linux/ Mac) 
- - `%LOCALAPPDATA%\Pub\Cache\hosted\pub.dartlang.org\tflite_flutter-<plugin-version>\ios\` (Windows)
+1. Run **`flutter pub run tflite_flutter:install`**.
+2. For building a custom version of tensorflow, follow [instructions in wiki](https://github.com/am15h/tflite_flutter_plugin/wiki/).
 
 ### Desktop
 
