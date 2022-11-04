@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'dart:core';
 import 'dart:io';
-
 import 'package:archive/archive_io.dart';
 import 'package:args/args.dart';
 
@@ -37,7 +36,8 @@ void main(List<String> args) async {
     String? tfliteFileUri;
     for (var package in packageList) {
       if (package["name"] == "tflite_flutter") {
-        tfliteFileUri = package["rootUri"];
+        //replace ../ to fix path issue for local dependency
+        tfliteFileUri = (package["rootUri"] as String).replaceFirst("../", "");
         break;
       }
     }
@@ -86,7 +86,7 @@ Future<void> downloadIOSLibs(String location) async {
 
 Future<void> downloadAndroidLibs(String location,
     {bool useDelegate = false}) async {
-  final directory = "$location/android/app/src/main/jniLibs/";
+  final directory = "$location/android/src/main/jniLibs/";
   const androidLib = "libtensorflowlite_c.so";
   final filesList = {
     'armeabi-v7a': useDelegate
